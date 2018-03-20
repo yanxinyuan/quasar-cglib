@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import co.paralleluniverse.fibers.Fiber;
+import co.paralleluniverse.fibers.SuspendExecution;
 import net.sf.cglib.proxy.Callback;
 import net.sf.cglib.proxy.CallbackFilter;
 import net.sf.cglib.proxy.Enhancer;
@@ -28,7 +29,7 @@ public class CglibUtil {
 		});
 		enhancer.setCallbacks(new Callback[] { new MethodInterceptor () {
 			@Override
-			public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
+			public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws SuspendExecution {
 				for (int i = 0; i < 10; i++) {
 					System.out.println(i);
 					Fiber.park();
