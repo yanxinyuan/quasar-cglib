@@ -1,4 +1,5 @@
 # quasar-cglib
+This is a minimal example project of quasar(https://github.com/puniverse/quasar) to work with cglib using maven plugin
 
 ## Step 1
 mvn clean  install
